@@ -25,7 +25,7 @@ const BlogSchema = z.object({
 
   content: z
     .string({ required_error: "Content is required" })
-    .min(50, { message: "Content must be at least 50 characters long" })
+    .min(5, { message: "Content must be at least 5 characters long" })
     .max(10000, { message: "Content cannot exceed 10,000 characters" })
     .trim()
     .refine((val) => val.split(/\s+/).length >= 10, {

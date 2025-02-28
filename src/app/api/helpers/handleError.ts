@@ -13,14 +13,8 @@ import { z } from "zod";
  *   - 500: For all other errors with a generic message.
  * @throws No explicit throws, but may propagate errors if `z.parse()` fails internally (unlikely with proper schema usage).
  */
-export default function handleError(
-  error: unknown,
-  defaultMessage: string,
-  logMessage?: string
-) {
-  if (logMessage) {
-    console.error(logMessage, error);
-  }
+export default function handleError(error: unknown, defaultMessage: string) {
+  console.error(defaultMessage, error);
 
   if (error instanceof z.ZodError) {
     return NextResponse.json(
