@@ -19,7 +19,7 @@ export default function handleError(error: unknown, defaultMessage: string) {
   if (error instanceof z.ZodError) {
     return NextResponse.json(
       {
-        code: 400,
+        code: "validation-failed",
         message: "Validation failed.",
         errors: error.errors.map((err) => ({
           field: err.path.join("."),
@@ -30,5 +30,8 @@ export default function handleError(error: unknown, defaultMessage: string) {
     );
   }
 
-  return NextResponse.json({ message: defaultMessage }, { status: 500 });
+  return NextResponse.json(
+    { code: "server-error", message: defaultMessage },
+    { status: 500 }
+  );
 }
