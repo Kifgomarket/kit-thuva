@@ -2,7 +2,7 @@
 
 [Provide a succinct and descriptive title for the pull request, e.g., “Improve caching mechanism for API calls”]
 
-https://deepmodel.atlassian.net/browse/KIT-XXX
+https://kifgo.atlassian.net/browse/KIT-XXX
 
 ## Type of Change
 
